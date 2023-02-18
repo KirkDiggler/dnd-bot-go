@@ -152,7 +152,7 @@ func (b *bot) Close() error {
 	for _, v := range b.registeredCommands {
 		log.Printf("Removing command '%v'...", v.Name)
 
-		err := b.session.ApplicationCommandDelete(b.session.State.User.ID, b.guildID, v.ID)
+		err := b.session.ApplicationCommandDelete(b.appID, b.guildID, v.ID)
 		if err != nil {
 			log.Panicf("Cannot delete '%v' command: %v", v.Name, err)
 		}

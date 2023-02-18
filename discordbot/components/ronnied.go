@@ -125,8 +125,22 @@ func (c *RonnieD) HandleMessageCreate(s *discordgo.Session, m *discordgo.Message
 		if err != nil {
 			log.Print(err)
 		}
+	} else if m.Content == "tanks ronnie" {
+		_, err := s.ChannelMessageSend(m.ChannelID, "Get a load of this guy")
+		if err != nil {
+			log.Print(err)
+		}
+	} else if m.Content == "there it is" {
+		_, err := s.ChannelMessageSend(m.ChannelID, "It's right there")
+		if err != nil {
+			log.Print(err)
+		}
+	} else if m.Content == "comon ronnie" {
+		_, err := s.ChannelMessageSend(m.ChannelID, "You got this")
+		if err != nil {
+			log.Print(err)
+		}
 	}
-
 }
 
 func (c *RonnieD) HandleInteractionCreate(s *discordgo.Session, i *discordgo.InteractionCreate) {
