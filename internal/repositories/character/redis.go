@@ -3,13 +3,13 @@ package character
 import (
 	"context"
 	"fmt"
+	"github.com/redis/go-redis/v9"
 
 	"github.com/KirkDiggler/dnd-bot-go/internal/entities"
 
 	"github.com/KirkDiggler/dnd-bot-go/internal/types"
 
 	"github.com/KirkDiggler/dnd-bot-go/dnderr"
-	"github.com/go-redis/redis/v9"
 )
 
 type redisRepo struct {

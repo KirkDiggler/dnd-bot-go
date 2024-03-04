@@ -2,6 +2,9 @@ package main
 
 import (
 	"flag"
+	"github.com/KirkDiggler/dnd-bot-go/internal/managers/ronnied_actions"
+	"github.com/KirkDiggler/dnd-bot-go/internal/repositories/ronnied/game"
+	"github.com/redis/go-redis/v9"
 	"log"
 	"net/http"
 	"os"
@@ -17,8 +20,6 @@ import (
 
 	"github.com/KirkDiggler/dnd-bot-go/internal/repositories/character"
 	"github.com/KirkDiggler/dnd-bot-go/internal/repositories/party"
-
-	"github.com/go-redis/redis/v9"
 
 	"github.com/KirkDiggler/dnd-bot-go/clients/dnd5e"
 
@@ -100,13 +101,28 @@ func main() {
 		panic(err)
 	}
 
+	gameRepo, err := game.NewRedis(&game.Config{
+		Client: redisClient,
+	})
+	if err != nil {
+		panic(err)
+	}
+
+	gameActions, err := ronnied_actions.NewManager(&ronnied_actions.ManagerConfig{
+		GameRepo: gameRepo,
+	})
+	if err != nil {
+		panic(err)
+	}
+
 	bot, err := discordbot.New(&discordbot.Config{
-		Token:         token,
-		GuildID:       guildID,
-		AppID:         appID,
-		DnD5EClient:   dnd5eClient,
-		PartyRepo:     partyRepo,
-		CharacterRepo: charManager,
+		Token:          token,
+		GuildID:        guildID,
+		AppID:          appID,
+		DnD5EClient:    dnd5eClient,
+		PartyRepo:      partyRepo,
+		CharacterRepo:  charManager,
+		RonnieDActions: gameActions,
 	})
 	if err != nil {
 		panic(err)

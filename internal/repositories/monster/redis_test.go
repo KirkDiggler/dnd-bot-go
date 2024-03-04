@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/KirkDiggler/dnd-bot-go/internal/entities"
-	"github.com/go-redis/redis/v9"
 	"github.com/go-redis/redismock/v9"
+	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/suite"
 	"testing"
 )

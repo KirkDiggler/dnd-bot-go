@@ -4,13 +4,12 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/redis/go-redis/v9"
 	"testing"
 
 	"github.com/KirkDiggler/dnd-bot-go/internal/entities"
 
 	"github.com/KirkDiggler/dnd-bot-go/internal/types"
-
-	"github.com/go-redis/redis/v9"
 
 	"github.com/go-redis/redismock/v9"
 	"github.com/stretchr/testify/suite"

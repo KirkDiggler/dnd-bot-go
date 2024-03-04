@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"github.com/KirkDiggler/dnd-bot-go/dnderr"
 	"github.com/KirkDiggler/dnd-bot-go/internal/types"
-	"github.com/go-redis/redis/v9"
+	"github.com/redis/go-redis/v9"
 )
 
 type Redis struct {

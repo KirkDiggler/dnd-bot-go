@@ -9,7 +9,7 @@ import (
 	"github.com/KirkDiggler/dnd-bot-go/internal/entities"
 
 	"github.com/KirkDiggler/dnd-bot-go/dnderr"
-	"github.com/go-redis/redis/v9"
+	"github.com/redis/go-redis/v9"
 
 	"github.com/stretchr/testify/suite"
 
